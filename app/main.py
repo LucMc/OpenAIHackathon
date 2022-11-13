@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 from flask import render_template, url_for, redirect, request
 import openai
 # For the API to work set your OpenAI API Key like follows
@@ -7,7 +8,7 @@ import openai
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
-MODEL_ID = 'curie:ft-oai-hackathon-2022-team-20-2022-11-13-10-10-42'
+MODEL_ID = 'davinci:ft-oai-hackathon-2022-team-20-2022-11-13-17-33-32'
 
 @app.route("/",methods=["POST","GET"])
 def homepage():
@@ -26,6 +27,19 @@ def optim():
    # print("finished")
    suggested_code = prompt
    return suggested_code
+
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                 endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
 
 if __name__ == '__main__':
    app.run(debug = True)

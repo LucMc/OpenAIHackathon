@@ -7,6 +7,11 @@ html, body {
   width: 500px;  
 } */
 
+.results {
+  border-radius: 15px !important;
+  margin: auto 15px;
+} 
+
 table
 { 
 margin-left: auto;
@@ -79,6 +84,15 @@ h2,table {
   background-color: #444;
 }
 
+.btn-submit {
+  border-radius: 10px;
+  color: white;
+  background-color: green;
+  padding: 10px 15px;
+  border: none;
+  margin: auto 15px;
+}
+
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s; /* If you want a transition effect */
@@ -90,9 +104,6 @@ h2,table {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
-
-
-
 
 /* Pretty printing styles. Used with prettify.js. */
 /* Vim sunburst theme by David Leibovic */
