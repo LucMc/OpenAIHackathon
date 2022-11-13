@@ -13,6 +13,12 @@ html, body {
   padding: 20px;
 } 
 
+#prompt {
+  background-color: black;
+  color: white;
+  font-family: var(--bs-font-monospace);
+}
+
 table
 { 
 margin-left: auto;

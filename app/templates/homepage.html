@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
-  <h1>Climate Coding</h1>
-  <br><br><br>
+  <br>
   <form method="post" id="prompt-form">
 	<table margin-left="auto;" margin-right="auto;">
 		<tr><th>
@@ -11,7 +10,7 @@
 		<th></th>
 		<th>
 			<div class="results scrollabletextbox" id="res">
-				<pre class="prettyprint results" style="width:600px;height:590px;">
+				<pre class="prettyprint results" style="width:700px;height:625px;">
 			</div>
 		</th>
 		</tr>
@@ -42,7 +41,9 @@
 	  success:function(data)
 	  {
 		// document.getElementById("res").innerHTML = ("<>def main(arg):\\ print('Hello there')");
-	    $(".results").replaceWith($('<pre class="prettyprint results" style="width:600px;height:590px;">' +  data + '</pre>'));
+	    $("#res").replaceWith($('<pre class="prettyprint results" style="width:700px;height:625px;">' +  data + '</pre>'));
+		$("#prompt").replaceWith($('<pre class="prettyprint results" style="width:700px;height:625px;">' +  $("#prompt").val() + '</pre>'));
+
 		PR.prettyPrint();
 	  }})});
 
