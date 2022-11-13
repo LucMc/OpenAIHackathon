@@ -22,7 +22,7 @@ def optim():
    result = openai.Completion.create(
       model=MODEL_ID,
       prompt=prompt,
-      max_tokens=100)
+      max_tokens=200)
    suggested_code = result['choices'][0]['text']
    print("finished")
    return suggested_code
