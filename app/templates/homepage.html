@@ -2,10 +2,26 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>Climate Coding</h1>
-  <br><br>
+  <br><br><br>
   <form method="post" id="prompt-form">
-	<input type="text" name="prompt" id="prompt">
-	<button type="submit">submit</button>
+	<table margin-left="auto;" margin-right="auto;">
+		<tr><th>
+		<textarea id="prompt" name="prompt" class="scrollabletextbox" rows="24" cols="72"></textarea>
+		</th>
+		<th></th>
+		<th>
+			<div class="results scrollabletextbox" id="res">
+				<pre class="prettyprint results" style="width:600px;height:590px;">
+
+			</div>
+		</th>
+		</tr>
+		<tr>
+			<td><button type="submit">submit</button></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
   </form>
 
 	<!--Jquery Cdn -->
@@ -26,11 +42,12 @@
 	  },
 	  success:function(data)
 	  {
-	    $(".results").replaceWith($('<p>' +  data + '<p>'));
-		
+		// document.getElementById("res").innerHTML = ("<>def main(arg):\\ print('Hello there')");
+	    $(".results").replaceWith($('<pre class="prettyprint results" style="width:600px;height:590px;">' +  data + '</pre>'));
+		PR.prettyPrint();
 	  }})});
 
   </script>
+  <br><br>
 
-  <p class="results">  </p>
 {% endblock %}

@@ -16,15 +16,15 @@ def homepage():
 
 @app.route("/optim",methods=["POST"])
 def optim():
-
    prompt = request.form.get("prompt")
    print("Starting request to API...")
-   result = openai.Completion.create(
-      model=MODEL_ID,
-      prompt=prompt,
-      max_tokens=200)
-   suggested_code = result['choices'][0]['text']
-   print("finished")
+   # result = openai.Completion.create(
+   #    model=MODEL_ID,
+   #    prompt=prompt,
+   #    max_tokens=200)
+   # suggested_code = result['choices'][0]['text']
+   # print("finished")
+   suggested_code = prompt
    return suggested_code
 
 if __name__ == '__main__':
