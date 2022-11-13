@@ -14,23 +14,23 @@
 	  crossorigin="anonymous"></script>
 
   <script type="text/javascript">
+	
   $(document).on('submit','#prompt-form',function(e)
 			   {
     e.preventDefault();
     $.ajax({
 	  type:'POST',
-	  url:'/',
+	  url:'/optim',
 	  data:{
 	    prompt:$("#prompt").val()
 	  },
-	  success:function()
+	  success:function(data)
 	  {
-	    alert('saved');
-	  }
-    })
-	//$(".results").replaceWith($('<p>' + prompt:$("#prompt").val() + '<p>'));
-});
+	    $(".results").replaceWith($('<p>' +  data + '<p>'));
+		
+	  }})});
+
   </script>
 
-  <p class="results"> {{ results }} </p>
+  <p class="results">  </p>
 {% endblock %}

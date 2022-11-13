@@ -7,18 +7,15 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/",methods=["POST","GET"])
 def homepage():
-   if request.method == "POST":
-        prompt = request.form.get("prompt")
-        # Process ...
-        print(prompt)
-        result = prompt
-        return redirect("./optim/")
    return render_template('homepage.html')
 
 
-@app.route("/optim/")
-def contact(name=None):
-   return render_template('results.html', result=name)
+@app.route("/optim",methods=["POST"])
+def optim():
+
+   prompt = request.form.get("prompt").upper()
+
+   return prompt#render_template('results.html', results=prompt)
 
 # @app.route("/events/")
 # def events(name=None):
