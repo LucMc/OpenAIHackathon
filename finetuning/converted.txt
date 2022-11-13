@@ -1,0 +1,1 @@
+{"prompt": "# Make this code more efficient\narr = np.array([1,2,3])\nrandom.choices(arr, k=1)", "completion": "arr = np.array([1,2,3])\nnp.random.choice(arr, size=1)"}
