@@ -1,9 +1,13 @@
 from flask import Flask
 from flask import render_template, url_for, redirect, request
+import openai
+# For the API to work set your OpenAI API Key like follows
+# export OPENAI_API_KEY="<OPENAI_API_KEY>"
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
+MODEL_ID = 'curie:ft-oai-hackathon-2022-team-20-2022-11-13-10-10-42'
 
 @app.route("/",methods=["POST","GET"])
 def homepage():
@@ -13,24 +17,15 @@ def homepage():
 @app.route("/optim",methods=["POST"])
 def optim():
 
-   prompt = request.form.get("prompt").upper()
-
-   return prompt#render_template('results.html', results=prompt)
-
-# @app.route("/events/")
-# def events(name=None):
-#     return render_template('events.html', name=name)
-
-
-# @app.route('/optimized/<name>')
-# def optimized(name):
-#    return 'welcome %s' % name
-
-# @app.route('/submit',methods = ['POST'])
-# def submit():
-#       user = request.form['nm']
-#       return redirect(url_for('optimized',name = user))
-
+   prompt = request.form.get("prompt")
+   print("Starting request to API...")
+   result = openai.Completion.create(
+      model=MODEL_ID,
+      prompt=prompt,
+      max_tokens=100)
+   suggested_code = result['choices'][0]['text']
+   print("finished")
+   return suggested_code
 
 if __name__ == '__main__':
    app.run(debug = True)
