@@ -1,12 +1,133 @@
 # Make this code more efficient
-def sort(arr):
- n = len(arr)
- for i in range(n):
- for j in range(0, n-i-1):
- if arr[j] > arr[j+1]:
- arr[j], arr[j+1] = arr[j+1], arr[j]
+void bubbleSort(int arr[], int n)
+{
+ int i, j;
+ for (i = 0; i < n - 1; i++)
+ 
+ // Last i elements are already
+ // in place
+ for (j = 0; j < n - i - 1; j++)
+ if (arr[j] > arr[j + 1])
+ swap(arr[j], arr[j + 1]);
+}", " 
 
-###
+void quickSort(int arr[], int low, int high)
+{
+ if (low < high) { // Note that we rely on the fact that
+ // arr[low] is in place already!
+ // (i.e. subjacent nodes have already been
+ // sorted.)
+ quickSort(arr, low, high - low);
+} else { // Otherwise, less than or equal to high:
+ // Insertions on the "high" side only,
+ // ahead of element currently located at
+ // the "low" side (which's still beyond the
+ // pointed to by the "high" pointer.).
+ quickSort(arr, low, high);
+}", " 
 
-return arr
-"} END { sortTreeSort(); END { sortNAt
+/** Insertion sort
+
+void insertionSort(int arr[], int low, int high)
+
+{
+ if (low < high) { // Note that we rely on the fact that
+ // arr[low] is in place already!
+ // (i.e. subjacent nodes have already been
+ // sorted.)
+ insertionSort(arr, low, high);
+} else { // Otherwise, less than or equal to high:
+ // Insertions on the "high" side only,
+ // ahead of element currently located at
+ // the "low" side (which's still beyond the
+ // pointed to by the "high" pointer.).
+ insertionSort(arr, low, high);
+}", " 
+
+void quickSort(int arr[], int low, int high)
+{
+ if (low < high) { // Note that we rely on the fact that
+ // arr[low] is in place already!
+ // (i.e. subjacent nodes have already been
+ // sorted.)
+ quickSort(arr, low, high - low);
+} else { // Otherwise, less than or equal to high:
+ // Insertions on the "high" side only,
+ // ahead of element currently located at
+ // the "low" side (which's still beyond the
+ // pointed to by the "high" pointer.).
+ quickSort(arr, low, high);
+}", " 
+
+void quickSort(int arr[], int low, int high)
+{
+ if (low < high) { // Note that we rely on the fact that
+ // arr[low] is in place already!
+ // (i.e. subjacent nodes have already been
+ // sorted.)
+ quickSort(arr, low, high - low);
+} else { // Otherwise, less than or equal to high:
+ // Insertions on the "high" side only,
+ // ahead of element currently located at
+ // the "low" side (which's still beyond the
+ // pointed to by the "high" pointer.).
+ quickSort(arr, low, high);
+}", "{\
+ float hi, lo;
+
+	const int N = size(ar);
+
+	float t[] = {hi, lo};
+
+	oprocess p = (ID3D10DeviceContext) 0;
+
+	p->QueryPerformanceCounter(NULL, &count);
+
+	p = (ID3D10DeviceContext) p;
+
+	p->UpdateObject(0, 0);
+
+	p->MipmapLevelsToArray(myMips, ARRAY_DIMENSION(myMips), t, (LPVOID*)&mips, n * mips.stride);
+
+	p->ScissorRect((LPRECT)mips.pitch + mips.stride.cx,
+
+	p->MipmapRect(mips + 1) - mips.pitch,
+
+	p->MipmapRect(mips.stride.cy + 1) - mips.pitch + 1,
+
+	p->MipmapRect(mips.stride.cx + mips.stride.cy,
+
+	p->MipmapRect(mips.stride.cy - 1) - mips.pitch - 1);
+
+	p->OffsetRects(0, 0, ARRAY_SIZE(t), 
+
+	p->MipmapArray(myMips), 1, (LPARRAY_DIMENSION)n * N);
+
+	p->EndScene();
+
+	// Account for any extra screen-aligned space required to put
+
+	// strided elements on the screen.
+
+	r[0] = hi, resultingRect.left = 0;
+
+	r[N - 1] = lo, resultingRect.right = N - 1;
+
+	p->BeginScene(mips.stride.cy / 2, mips.stride.cx / 2);
+
+	p->DrawIndexed(0, 1, 
+
+	p->MipmapArray(myMips), mips.stride.cx / 2, mips.pitch);
+
+	p->EndScene();
+
+	*(ULONG_PTR *) resultingRect.c = count - 1;
+
+	tee -= firstScan;
+}, 526], ["
+
+	float hi, lo;
+
+	const int N = size(ar);
+
+
