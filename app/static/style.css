@@ -10,6 +10,7 @@ html, body {
 .results {
   border-radius: 15px !important;
   margin: auto 15px;
+  padding: 20px;
 } 
 
 table
